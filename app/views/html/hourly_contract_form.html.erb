@@ -1,0 +1,199 @@
+<%= provide :title, 'Hourly Contract Request' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">Hourly Contract Request</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 col-centered">
+      <%= form_tag(method: :post) do %>
+          <div class="row">
+            <div class="col-md-10">
+              <h3>Employee Information</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-5">
+                  <%= label_tag :candidate_first_name, 'First Name' %>
+                  <%= text_field_tag :candidate_first_name, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-2">
+                  <%= label_tag :candidate_middle_initial, 'Middle Initial' %>
+                  <%= text_field_tag :candidate_middle_initial, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-5">
+                  <%= label_tag :candidate_last_name, 'Last Name' %>
+                  <%= text_field_tag :candidate_last_name, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-5">
+                  <%= label_tag :candidate_email, 'Email' %>
+                  <%= email_field_tag :candidate_email, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-5">
+                  <%= label_tag :candidate_phone, 'Phone' %>
+                  <%= telephone_field_tag :candidate_phone, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group form-inline">
+                <div class="col-md-5">
+                  <%= label_tag :hire_type, 'New Hire' %>
+                  <%= radio_button_tag :hire_type, 'New Hire', false, class: 'form-control' %>
+                  <%= label_tag :hire_type, 'Reappointment' %>
+                  <%= radio_button_tag :hire_type, 'Reappointment', false, class: 'form-control' %>
+                </div>
+                <div class="col-md-7">
+                  <%= label_tag :international, 'International Student/Employee?' %>
+                  <%= label_tag :international, 'Yes' %>
+                  <%= radio_button_tag :international, 'Yes', false, class: 'form-control' %>
+                  <%= label_tag :international, 'No' %>
+                  <%= radio_button_tag :international, 'No', false, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-10">
+              <h3>Position Information</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :department, 'Department' %>
+                  <%= text_field_tag :department, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-6">
+                  <%= label_tag :supervisor, 'Supervisor' %>
+                  <%= text_field_tag :supervisor, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-3">
+                  <%= label_tag :start_date, 'Start Date' %>
+                  <%= text_field_tag :start_date, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-3">
+                  <%= label_tag :end_date, 'End Date' %>
+                  <%= text_field_tag :end_date, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-6">
+                  <%= label_tag :account_number, 'Account Number' %>
+                  <%= text_field_tag :account_number, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-3">
+                  <%= label_tag :hours_per_week, 'Hours/Week' %>
+                  <%= text_field_tag :hours_per_week, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-3">
+                  <%= label_tag :hourly_rate, 'Hourly Rate' %>
+                  <%= text_field_tag :hourly_rate, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-2 margin-top-2-125">
+                  <strong>Split Funded?</strong>
+                </div>
+                <div class="col-md-4 form-inline margin-top-1-5">
+                  <%= label_tag :split_funded, 'Yes' %>
+                  <%= radio_button_tag :split_funded, 'Yes', false, class: 'form-control' %>
+                  <%= label_tag :split_funded, 'No' %>
+                  <%= radio_button_tag :split_funded, 'No', false, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-12">
+                  <%= label_tag :additional_accounts, 'Additional Accounts' %>
+                  <%= text_area_tag :additional_accounts, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-12 margin-top-1">
+                  <%= label_tag :duties_responsibilities, 'General Duties/Responsibilities' %>
+                  <%= text_area_tag :duties_responsibilities, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-12 margin-top-1">
+                  <%= label_tag :comments, 'Comments' %>
+                  <%= text_area_tag :comments, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-10">
+              <h3>Requester Information</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-4">
+                  <%= label_tag :requester_first_name, 'First Name' %>
+                  <%= text_field_tag :requester_first_name, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-4">
+                  <%= label_tag :requester_last_name, 'Last Name' %>
+                  <%= text_field_tag :requester_last_name, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-4">
+                  <%= label_tag :requester_email, 'Email' %>
+                  <%= email_field_tag :requester_email, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row margin-top-2">
+            <div class="col-md-12">
+              <div class="form-group">
+                <div class="col-md-2 col-centered text-center">
+                  <%= submit_tag 'Submit', class: 'btn btn-default form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <hr>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

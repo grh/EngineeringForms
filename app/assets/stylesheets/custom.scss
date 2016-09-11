@@ -1,0 +1,58 @@
+$main_color: #880000;
+
+.navbar-default {
+  background-color: white;
+  border-style: none;
+  border-bottom: solid $main_color;
+}
+
+.school-logo {
+  color: $main_color;
+  font-size: 200%;
+}
+
+.navbar-default .navbar-collapse li a {
+  color: $main_color;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.dashboard-table {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.dashboard-actions {
+  color: $main_color;
+}
+
+.btn-unlv-red {
+  background-color: $main_color;
+  color: white;
+}
+
+a {
+  color: $main_color;
+}
+
+@media screen and (min-width: 768px) {
+  #main {
+    padding-top: 40px;
+  }
+}
+
+hr {
+  border-color: $main_color;
+  border-width: 2px;
+}
+
+.margin-top-1 { margin-top: 1em; }
+.margin-top-1-5 { margin-top: 1.5em; }
+.margin-top-2 { margin-top: 2em; }
+.margin-top-2-125 { margin-top: 2.125em; }
+
+.margin-bottom-1 { margin-bottom: 1em; }
+.margin-bottom-2 { margin-bottom: 2em; }
