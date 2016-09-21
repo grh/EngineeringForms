@@ -9,8 +9,22 @@
 
   <div class="row">
     <div class="col-md-12 text-center">
-      <strong>&lowast; &mdash; indicates required field</strong>
+      <strong><span style="font-size:1.25em; color:#880000;">&lowast;</span> &mdash; indicates required field</strong>
     </div>
+  </div>
+
+  <div class="row margin-top-1">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 margin-top-1">
+      <strong>
+        Note: If you intend to use the same position information for
+        multiple employees, please indicate the additional employee
+        information for each employee in the comments section.
+        Alternatively, you may fill out a separate request for each
+        employee.
+      </strong>
+    </div>
+    <div class="col-md-1"></div>
   </div>
 
   <div class="row">
@@ -26,7 +40,7 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-5">
-                  <%= label_tag :employee_first_name, 'First Name' %>&lowast;
+                  <%= label_tag :employee_first_name, 'First Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= text_field_tag :employee_first_name, nil, class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-2">
@@ -34,7 +48,7 @@
                   <%= text_field_tag :employee_middle_initial, nil, class: 'form-control' %>
                 </div>
                 <div class="col-md-5">
-                  <%= label_tag :employee_last_name, 'Last Name' %>&lowast;
+                  <%= label_tag :employee_last_name, 'Last Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= text_field_tag :employee_last_name, nil, class: 'form-control', required: true %>
                 </div>
               </div>
@@ -45,7 +59,7 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-5">
-                  <%= label_tag :employee_email, 'Email' %>&lowast;
+                  <%= label_tag :employee_email, 'Email' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= email_field_tag :employee_email, nil, class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-5">
@@ -60,13 +74,13 @@
             <div class="col-md-11 col-centered">
               <div class="form-group form-inline">
                 <div class="col-md-5">
-                  &lowast;<%= label_tag :hire_type, 'New Hire' %>
+                  <span style="font-size:1.25em; color:#880000;">&lowast;</span><%= label_tag :hire_type, 'New Hire' %>
                   <%= radio_button_tag :hire_type, 'New Hire', false, class: 'form-control', required: true %>
                   <%= label_tag :hire_type, 'Reappointment' %>
                   <%= radio_button_tag :hire_type, 'Reappointment', false, class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-7">
-                  <%= label_tag :is_international, 'International Student/Employee?' %>&lowast;
+                  <%= label_tag :is_international, 'International Student/Employee?' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= label_tag :is_international, 'Yes' %>
                   <%= radio_button_tag :is_international, 'Yes', false, class: 'form-control', required: true %>
                   <%= label_tag :is_international, 'No' %>
@@ -86,11 +100,11 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-6">
-                  <%= label_tag :department, 'Department/Unit' %>&lowast;
+                  <%= label_tag :department, 'Department/Unit' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= select_tag :department, options_for_select(departments), prompt: 'Choose a department', class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-6">
-                  <%= label_tag :supervisor, 'Supervisor' %>&lowast;
+                  <%= label_tag :supervisor, 'Supervisor' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= text_field_tag :supervisor, nil, class: 'form-control', required: true %>
                 </div>
               </div>
@@ -101,15 +115,15 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-3">
-                  <%= label_tag :start_date, 'Start Date' %>&lowast;
-                  <%= date_field_tag :start_date, nil, class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                  <%= label_tag :start_date, 'Start Date' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :start_date, nil, class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
                 </div>
                 <div class="col-md-3">
-                  <%= label_tag :end_date, 'End Date' %>&lowast;
-                  <%= date_field_tag :end_date, nil, class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                  <%= label_tag :end_date, 'End Date' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :end_date, nil, class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
                 </div>
                 <div class="col-md-3">
-                  <%= label_tag :monthly_rate, 'Monthly Rate' %>&lowast;
+                  <%= label_tag :monthly_rate, 'Monthly Rate' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= text_field_tag :monthly_rate, nil, class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-3">
@@ -134,7 +148,7 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-6">
-                  <%= label_tag :hours_per_week, 'Hours/Week' %>&lowast;
+                  <%= label_tag :hours_per_week, 'Hours/Week' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= text_field_tag :hours_per_week, nil, class: 'form-control calcFTE', id: 'hoursPerWeek', required: true %>
                 </div>
                 <div class="col-md-6 fte-rate">
@@ -150,11 +164,11 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-6">
-                  <%= label_tag :account_information, 'Account Number or Name' %>&lowast;
+                  <%= label_tag :account_information, 'Account Number or Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= text_field_tag :account_information, nil, class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-6 form-inline margin-top-1-5">
-                  <%= label_tag :split_funded, 'Split Funded?' %>&lowast;
+                  <%= label_tag :split_funded, 'Split Funded?' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= label_tag :split_funded, 'Yes' %>
                   <%= radio_button_tag :split_funded, 'Yes', false, class: 'form-control', required: true %>
                   <%= label_tag :split_funded, 'No' %>
@@ -172,7 +186,7 @@
                   <%= text_area_tag :additional_accounts, nil, class: 'form-control' %>
                 </div>
                 <div class="col-md-12 margin-top-1">
-                  <%= label_tag :job_description, 'Job Description' %>&lowast;
+                  <%= label_tag :job_description, 'Job Description' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= text_area_tag :job_description, nil, class: 'form-control', required: true; %>
                 </div>
                 <div class="col-md-12 margin-top-1">
@@ -193,11 +207,11 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-6">
-                  <%= label_tag :requester_first_name, 'First Name' %>&lowast;
+                  <%= label_tag :requester_first_name, 'First Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= text_field_tag :requester_first_name, nil, class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-6">
-                  <%= label_tag :requester_last_name, 'Last Name' %>&lowast;
+                  <%= label_tag :requester_last_name, 'Last Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= text_field_tag :requester_last_name, nil, class: 'form-control', required: true %>
                 </div>
               </div>
@@ -208,11 +222,11 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-6">
-                  <%= label_tag :requester_department, 'Department/Unit' %>&lowast;
+                  <%= label_tag :requester_department, 'Department/Unit' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= select_tag :requester_department, options_for_select(departments), prompt: 'Choose a department', class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-6">
-                  <%= label_tag :requester_email, 'Email' %>&lowast;
+                  <%= label_tag :requester_email, 'Email' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= email_field_tag :requester_email, nil, class: 'form-control', required: true %>
                 </div>
               </div>
