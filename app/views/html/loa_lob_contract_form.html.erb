@@ -8,8 +8,14 @@
   </div>
 
   <div class="row">
+    <div class="col-md-12 text-center">
+      <strong>&lowast; &mdash; indicates required field</strong>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-10 col-centered">
-      <%= form_tag(method: :post) do %>
+      <%= form_tag(loa_lob_contract_email_path, method: :post) do %>
           <div class="row">
             <div class="col-md-10">
               <h3>Employee Information</h3>
@@ -20,16 +26,16 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-5">
-                  <%= label_tag :candidate_first_name, 'First Name' %>
-                  <%= text_field_tag :candidate_first_name, nil, class: 'form-control' %>
+                  <%= label_tag :employee_first_name, 'First Name' %>&lowast;
+                  <%= text_field_tag :employee_first_name, nil, class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-2">
-                  <%= label_tag :candidate_middle_initial, 'Middle Initial' %>
-                  <%= text_field_tag :candidate_middle_initial, nil, class: 'form-control' %>
+                  <%= label_tag :employee_middle_initial, 'Middle Initial' %>
+                  <%= text_field_tag :employee_middle_initial, nil, class: 'form-control' %>
                 </div>
                 <div class="col-md-5">
-                  <%= label_tag :candidate_last_name, 'Last Name' %>
-                  <%= text_field_tag :candidate_last_name, nil, class: 'form-control' %>
+                  <%= label_tag :employee_last_name, 'Last Name' %>&lowast;
+                  <%= text_field_tag :employee_last_name, nil, class: 'form-control', required: true %>
                 </div>
               </div>
             </div>
@@ -39,12 +45,12 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-5">
-                  <%= label_tag :candidate_email, 'Email' %>
-                  <%= email_field_tag :candidate_email, nil, class: 'form-control' %>
+                  <%= label_tag :employee_email, 'Email' %>&lowast;
+                  <%= email_field_tag :employee_email, nil, class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-5">
-                  <%= label_tag :candidate_phone, 'Phone' %>
-                  <%= telephone_field_tag :candidate_phone, nil, class: 'form-control' %>
+                  <%= label_tag :employee_phone, 'Phone' %>
+                  <%= telephone_field_tag :employee_phone, nil, class: 'form-control' %>
                 </div>
               </div>
             </div>
@@ -54,17 +60,17 @@
             <div class="col-md-11 col-centered">
               <div class="form-group form-inline">
                 <div class="col-md-5">
-                  <%= label_tag :hire_type, 'New Hire' %>
-                  <%= radio_button_tag :hire_type, 'New Hire', false, class: 'form-control' %>
+                  &lowast;<%= label_tag :hire_type, 'New Hire' %>
+                  <%= radio_button_tag :hire_type, 'New Hire', false, class: 'form-control', required: true %>
                   <%= label_tag :hire_type, 'Reappointment' %>
-                  <%= radio_button_tag :hire_type, 'Reappointment', false, class: 'form-control' %>
+                  <%= radio_button_tag :hire_type, 'Reappointment', false, class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-7">
-                  <%= label_tag :international, 'International Student/Employee?' %>
-                  <%= label_tag :international, 'Yes' %>
-                  <%= radio_button_tag :international, 'Yes', false, class: 'form-control' %>
-                  <%= label_tag :international, 'No' %>
-                  <%= radio_button_tag :international, 'No', false, class: 'form-control' %>
+                  <%= label_tag :is_international, 'International Student/Employee?' %>&lowast;
+                  <%= label_tag :is_international, 'Yes' %>
+                  <%= radio_button_tag :is_international, 'Yes', false, class: 'form-control', required: true %>
+                  <%= label_tag :is_international, 'No' %>
+                  <%= radio_button_tag :is_international, 'No', false, class: 'form-control', required: true %>
                 </div>
               </div>
             </div>
@@ -80,12 +86,12 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-6">
-                  <%= label_tag :department, 'Department' %>
-                  <%= text_field_tag :department, nil, class: 'form-control' %>
+                  <%= label_tag :department, 'Department/Unit' %>&lowast;
+                  <%= select_tag :department, options_for_select(departments), prompt: 'Choose a department', class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-6">
-                  <%= label_tag :supervisor, 'Supervisor' %>
-                  <%= text_field_tag :supervisor, nil, class: 'form-control' %>
+                  <%= label_tag :supervisor, 'Supervisor' %>&lowast;
+                  <%= text_field_tag :supervisor, nil, class: 'form-control', required: true %>
                 </div>
               </div>
             </div>
@@ -95,117 +101,30 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-3">
-                  <%= label_tag :start_date, 'Start Date' %>
-                  <%= text_field_tag :start_date, nil, class: 'form-control' %>
+                  <%= label_tag :start_date, 'Start Date' %>&lowast;
+                  <%= date_field_tag :start_date, nil, class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
                 </div>
                 <div class="col-md-3">
-                  <%= label_tag :end_date, 'End Date' %>
-                  <%= text_field_tag :end_date, nil, class: 'form-control' %>
+                  <%= label_tag :end_date, 'End Date' %>&lowast;
+                  <%= date_field_tag :end_date, nil, class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
                 </div>
-                <div class="col-md-6">
-                  <%= label_tag :loa_fte, 'LOA FTE %' %>
-                  <%= select_tag :loa_fte, options_for_select([
-                      ['2.50%', 1],
-                      ['5.00%', 2],
-                      ['7.50%', 3],
-                      ['10.00%', 4],
-                      ['12.50%', 5],
-                      ['15.00%', 6],
-                      ['17.50%', 7],
-                      ['20.00%', 8],
-                      ['22.50%', 9],
-                      ['25.00%', 10],
-                      ['27.50%', 11],
-                      ['30.00%', 12],
-                      ['32.50%', 13],
-                      ['35.00%', 14],
-                      ['37.50%', 15],
-                      ['40.00%', 16],
-                      ['42.50%', 17],
-                      ['45.00%', 18],
-                      ['47.50%', 19],
-                      ['50.00%', 20],
-                      ['52.50%', 21],
-                      ['55.00%', 22],
-                      ['57.50%', 23],
-                      ['60.00%', 24],
-                      ['62.50%', 25],
-                      ['65.00%', 26],
-                      ['67.50%', 27],
-                      ['70.00%', 28],
-                      ['72.50%', 29],
-                      ['75.00%', 30],
-                      ['77.50%', 31],
-                      ['80.00%', 32],
-                      ['82.50%', 33],
-                      ['85.00%', 34],
-                      ['87.50%', 35],
-                      ['90.00%', 36],
-                      ['92.50%', 37],
-                      ['95.00%', 38],
-                      ['97.50%', 39],
-                      ['100.00%', 40]
-                  ]), class: 'form-control' %>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-11 col-centered">
-              <div class="form-group">
                 <div class="col-md-3">
-                  <%= label_tag :monthly_rate, 'Monthly Rate' %>
-                  <%= text_field_tag :monthly_rate, nil, class: 'form-control' %>
+                  <%= label_tag :monthly_rate, 'Monthly Rate' %>&lowast;
+                  <%= text_field_tag :monthly_rate, nil, class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-3">
                   <%= label_tag :total_amount, 'Total Contract Amount' %>
                   <%= text_field_tag :total_amount, nil, class: 'form-control' %>
                 </div>
-                <div class="col-md-6">
-                  <%= label_tag :lob_fte, 'LOB FTE % (More than 60 days)' %>
-                  <%= select_tag :lob_fte, options_for_select([
-                    ['2.50%', 1],
-                    ['5.00%', 2],
-                    ['7.50%', 3],
-                    ['10.00%', 4],
-                    ['12.50%', 5],
-                    ['15.00%', 6],
-                    ['17.50%', 7],
-                    ['20.00%', 8],
-                    ['22.50%', 9],
-                    ['25.00%', 10],
-                    ['27.50%', 11],
-                    ['30.00%', 12],
-                    ['32.50%', 13],
-                    ['35.00%', 14],
-                    ['37.50%', 15],
-                    ['40.00%', 16],
-                    ['42.50%', 17],
-                    ['45.00%', 18],
-                    ['47.50%', 19],
-                    ['50.00%', 20],
-                    ['52.50%', 21],
-                    ['55.00%', 22],
-                    ['57.50%', 23],
-                    ['60.00%', 24],
-                    ['62.50%', 25],
-                    ['65.00%', 26],
-                    ['67.50%', 27],
-                    ['70.00%', 28],
-                    ['72.50%', 29],
-                    ['75.00%', 30],
-                    ['77.50%', 31],
-                    ['80.00%', 32],
-                    ['82.50%', 33],
-                    ['85.00%', 34],
-                    ['87.50%', 35],
-                    ['90.00%', 36],
-                    ['92.50%', 37],
-                    ['95.00%', 38],
-                    ['97.50%', 39],
-                    ['100.00%', 40]
-                ]), class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-12 text-center">
+                  <strong>Note: LOB Medical Insurance $8,391/year, Fringe Rate 9.30%</strong>
                 </div>
               </div>
             </div>
@@ -214,14 +133,32 @@
           <div class="row">
             <div class="col-md-11 col-centered">
               <div class="form-group">
-                <div class="col-md-6 margin-top-2 text-right">
-                  <strong>Split Funded?</strong>
+                <div class="col-md-6">
+                  <%= label_tag :hours_per_week, 'Hours/Week' %>&lowast;
+                  <%= text_field_tag :hours_per_week, nil, class: 'form-control calcFTE', id: 'hoursPerWeek', required: true %>
                 </div>
-                <div class="col-md-6 form-inline margin-top-1-5 text-left">
+                <div class="col-md-6 fte-rate">
+                  <%= label_tag :fte_rate, 'LOA FTE %', id: 'fteRateLabel' %>
+                  <%= text_field_tag :fte_rate, nil, class: 'form-control', id: 'fteRate', readonly: true %>
+                  <%= hidden_field_tag :contract_type, 'LOA', id: 'contractType' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :account_information, 'Account Number or Name' %>&lowast;
+                  <%= text_field_tag :account_information, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-6 form-inline margin-top-1-5">
+                  <%= label_tag :split_funded, 'Split Funded?' %>&lowast;
                   <%= label_tag :split_funded, 'Yes' %>
-                  <%= radio_button_tag :split_funded, 'Yes', false, class: 'form-control' %>
+                  <%= radio_button_tag :split_funded, 'Yes', false, class: 'form-control', required: true %>
                   <%= label_tag :split_funded, 'No' %>
-                  <%= radio_button_tag :split_funded, 'No', false, class: 'form-control' %>
+                  <%= radio_button_tag :split_funded, 'No', false, class: 'form-control', required: true %>
                 </div>
               </div>
             </div>
@@ -231,15 +168,15 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-12">
-                  <%= label_tag :additional_accounts, 'Additional Accounts' %>
+                  <%= label_tag :additional_accounts, 'Additional Accounts (Please specify Acct. Num. or Name. Include split details in comments.)' %>
                   <%= text_area_tag :additional_accounts, nil, class: 'form-control' %>
                 </div>
                 <div class="col-md-12 margin-top-1">
-                  <%= label_tag :duties_responsibilities, 'General Duties/Responsibilities' %>
-                  <%= text_area_tag :duties_responsibilities, nil, class: 'form-control' %>
+                  <%= label_tag :job_description, 'Job Description' %>&lowast;
+                  <%= text_area_tag :job_description, nil, class: 'form-control', required: true; %>
                 </div>
                 <div class="col-md-12 margin-top-1">
-                  <%= label_tag :comments, 'Comments' %>
+                  <%= label_tag :comments, 'Additional Comments' %>
                   <%= text_area_tag :comments, nil, class: 'form-control' %>
                 </div>
               </div>
@@ -255,17 +192,28 @@
           <div class="row">
             <div class="col-md-11 col-centered">
               <div class="form-group">
-                <div class="col-md-4">
-                  <%= label_tag :requester_first_name, 'First Name' %>
-                  <%= text_field_tag :requester_first_name, nil, class: 'form-control' %>
+                <div class="col-md-6">
+                  <%= label_tag :requester_first_name, 'First Name' %>&lowast;
+                  <%= text_field_tag :requester_first_name, nil, class: 'form-control', required: true %>
                 </div>
-                <div class="col-md-4">
-                  <%= label_tag :requester_last_name, 'Last Name' %>
-                  <%= text_field_tag :requester_last_name, nil, class: 'form-control' %>
+                <div class="col-md-6">
+                  <%= label_tag :requester_last_name, 'Last Name' %>&lowast;
+                  <%= text_field_tag :requester_last_name, nil, class: 'form-control', required: true %>
                 </div>
-                <div class="col-md-4">
-                  <%= label_tag :requester_email, 'Email' %>
-                  <%= email_field_tag :requester_email, nil, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :requester_department, 'Department/Unit' %>&lowast;
+                  <%= select_tag :requester_department, options_for_select(departments), prompt: 'Choose a department', class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-6">
+                  <%= label_tag :requester_email, 'Email' %>&lowast;
+                  <%= email_field_tag :requester_email, nil, class: 'form-control', required: true %>
                 </div>
               </div>
             </div>

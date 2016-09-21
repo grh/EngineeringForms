@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+
+<body>
+<div class="container margin-top-1">
+  <div class="row">
+    <div class="col-md-12">
+      <p>An Hourly Contract Request has been submitted on <%= Date.today.strftime("%b %e, %Y") %> at <%= Time.now.strftime("%l:%M%P") %>:</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p><strong>Employee Information</strong></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <table class="table table-condensed">
+        <tr>
+          <td>Employee Name:</td>
+          <td><%= @params[:employee_first_name] %> <%= @params[:employee_middle_initial] %> <%= @params[:employee_last_name] %></td>
+        </tr>
+        <tr>
+          <td>Employee Email:</td>
+          <td><%= @params[:employee_email] %></td>
+        </tr>
+        <tr>
+          <td>Employee Phone:</td>
+          <td><%= @params[:employee_phone] %></td>
+        </tr>
+        <tr>
+          <td>New Hire/Reappointment:</td>
+          <td><%= @params[:hire_type] %></td>
+        </tr>
+        <tr>
+          <td>International?:</td>
+          <td><%= @params[:is_international] %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p><strong>Position Information</strong></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <table class="table table-condensed">
+        <tr>
+          <td>Department/Unit:</td>
+          <td><%= departments[@params[:department].to_i][0] %></td>
+        </tr>
+        <tr>
+          <td>Supervisor:</td>
+          <td><%= @params[:supervisor] %></td>
+        </tr>
+        <tr>
+          <td>Start Date:</td>
+          <td><%= @params[:start_date] %></td>
+        </tr>
+        <tr>
+          <td>End Date:</td>
+          <td><%= @params[:end_date] %></td>
+        </tr>
+        <tr>
+          <td>Hours Per Week:</td>
+          <td><%= @params[:hours_per_week] %></td>
+        </tr>
+        <tr>
+          <td>Hourly Rate:</td>
+          <td>$<%= @params[:hourly_rate] %>/hr</td>
+        </tr>
+        <tr>
+          <td>Account Information:</td>
+          <td><%= @params[:account_information] %></td>
+        </tr>
+        <tr>
+          <td>Split Funded?:</td>
+          <td><%= @params[:split_funded] %></td>
+        </tr>
+        <% if @params[:split_funded].downcase == 'yes' %>
+            <tr>
+              <td>Additional Accounts:</td>
+              <td><%= @params[:additional_accounts] %></td>
+            </tr>
+        <% end %>
+        <tr>
+          <td>Job Description:</td>
+          <td><%= @params[:job_description] %></td>
+        </tr>
+        <tr>
+          <td>Additional Comments:</td>
+          <td><%= @params[:comments] %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p><strong>Requester Information</strong></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <table class="table table-condensed">
+        <tr>
+          <td>Requester Name:</td>
+          <td><%= @params[:requester_first_name] %> <%= @params[:requester_last_name] %></td>
+        </tr>
+        <tr>
+          <td>Requester Department:</td>
+          <td><%= departments[@params[:requester_department].to_i][0] %></td>
+        </tr>
+        <tr>
+          <td>Requester Email:</td>
+          <td><%= @params[:requester_email] %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p>Note: if this is a Grant Account request, please forward this information to the Finance and Administrative Specialist (tara.mullin@unlv.edu) for budget approval.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
