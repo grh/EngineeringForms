@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :departments, :weekly_hours
 
   def departments
+=begin
     return [
         [ 'COE Dean\'s Office', 0 ],
         [ 'COE Advising Center', 1 ],
@@ -14,9 +15,14 @@ class ApplicationController < ActionController::Base
         [ 'Computer Science (CS)', 4 ],
         [ 'Electrical & Computer Engr. (ECE)', 5 ],
         [ 'Mechanical Engineering (ME)', 6 ],
-        [ 'Center for Energy Research (CER)', 7 ],
-        [ 'Aerospace Studies (AFROTC)', 8 ],
-        [ 'Military Science (ARMY)', 9 ]
+        [ 'Entertainment Engr. & Design (EED)', 7 ],
+        [ 'Center for Energy Research (CER)', 8 ],
+        [ 'Aerospace Studies (AFROTC)', 9 ],
+        [ 'Military Science (ARMY)', 10 ]
+    ]
+=end
+    return [
+        [ 'Guymon\'s Office', 0 ]
     ]
   end
 

@@ -4,4 +4,7 @@ class HtmlController < ApplicationController
 
   def loa_lob_contract_form
   end
+
+  def travel_request_form
+  end
 end

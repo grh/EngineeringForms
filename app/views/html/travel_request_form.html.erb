@@ -1,0 +1,258 @@
+<%= provide :title, 'Travel Request' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">Travel Request</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <strong><span style="font-size:1.25em; color:#880000;">&lowast;</span> &mdash; indicates required field</strong>
+    </div>
+  </div>
+
+  <div class="row margin-top-1">
+    <div class="col-md-10 col-centered">
+      <%= form_tag(travel_request_email_path, method: :post) do %>
+          <div class="row">
+            <div class="col-md-10">
+              <h3>Traveler Information</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-5">
+                  <%= label_tag :traveler_first_name, 'First Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :traveler_first_name, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-5">
+                  <%= label_tag :traveler, 'Last Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :traveler_last_name, nil, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-5">
+                  <%= label_tag :traveler_email, 'Email' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= email_field_tag :traveler_email, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-5">
+                  <%= label_tag :traveler_phone, 'Phone' %>
+                  <%= telephone_field_tag :traveler_phone, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :department, 'Department/Unit' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= select_tag :department, options_for_select(departments), prompt: 'Choose a department', class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10">
+              <h3>Trip Information</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :destination, 'Destination (City, State, Country)' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :destination, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-3">
+                  <%= label_tag :depart_date, 'Departure Date' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :depart_date, nil, class: 'form-control datepicker', required: true %>
+                </div>
+                <div class="col-md-3">
+                  <%= label_tag :return_date, 'Return Date' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :return_date, nil, class: 'form-control datepicker', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-12 margin-top-1">
+                  <%= label_tag :trip_purpose, 'Trip Purpose' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_area_tag :trip_purpose, nil, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <table class="table margin-top-1">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th class="text-center">Amount</th>
+                      <th class="text-center">Account</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Airfare</strong></td>
+                      <td><%= text_field_tag :airfare_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :airfare_acct, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Lodging (See Note 1)</strong></td>
+                      <td><%= text_field_tag :lodging_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :lodging_acct, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Registration Fee</strong></td>
+                      <td><%= text_field_tag :registration_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :registration_acct, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Meal Per Diem (See Note 1)</strong></td>
+                      <td><%= text_field_tag :meal_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :meal_acct, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Car Rental</strong></td>
+                      <td><%= text_field_tag :car_rental_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :car_rental_acct, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Personal Auto (Mileage)</strong></td>
+                      <td><%= text_field_tag :mileage_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :mileage_acct, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Ground Transportation/Taxi</strong></td>
+                      <td><%= text_field_tag :taxi_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :taxi_acct, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Parking</strong></td>
+                      <td><%= text_field_tag :parking_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :parking_acct, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Internet</strong></td>
+                      <td><%= text_field_tag :internet_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :internet_acct, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Others</strong></td>
+                      <td><%= text_field_tag :other_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :other_acct, nil, class: 'form-control' %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="row margin-top-1">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 margin-top-1">
+              <strong>Note 1: Lodging &amp; Meal Rates</strong>
+              <ul>
+                <li>The university requires those travelling on official university business to follow the existing federal
+                  travel regulations (GSA) with regards to lodging and meal per diems (see:
+                  <a href="https://www.unlv.edu/controller/travel-program">https://www.unlv.edu/controller/travel-program</a>)</li>
+                <li>Domestic per diem rates are set by fiscal year effective October 1. The current rates can be found by
+                  searching city and state (or zip code). Related link:
+                  <a href="https://www.gsa.gov/portal/content/104877">https://www.gsa.gov/portal/content/104877</a></li>
+                <li>Foreign per diem rates are set on a monthly basis and should be check prior to departure on overseas travel.
+                  The rates shown are in US dollar currency, not local currency. Related link:
+                  <a href="https://aoprals.state.gov/content.asp?content_id=114&menu_id=81">https://aoprals.state.gov/content.asp?content_id=114&menu_id=81</a></li>
+                <li>Lodging Exception Form can be found at: <a href="https://www.unlv.edu/controller/forms">https://www.unlv.edu/controller/forms</a></li>
+              </ul>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-12">
+                  <%= label_tag :additional_accounts, 'Account Instructions / Method of Payment (Please specify accounting details, split funding, etc.)' %>
+                  <%= text_area_tag :additional_accounts, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-12 margin-top-1">
+                  <%= label_tag :comments, 'Additional Comments' %>
+                  <%= text_area_tag :comments, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-10">
+              <h3>Requester Information</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :requester_first_name, 'First Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :requester_first_name, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-6">
+                  <%= label_tag :requester_last_name, 'Last Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :requester_last_name, nil, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :requester_department, 'Department/Unit' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= select_tag :requester_department, options_for_select(departments), prompt: 'Choose a department', class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-6">
+                  <%= label_tag :requester_email, 'Email' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= email_field_tag :requester_email, nil, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row margin-top-2">
+            <div class="col-md-12">
+              <div class="form-group">
+                <div class="col-md-2 col-centered text-center">
+                  <%= submit_tag 'Submit', class: 'btn btn-default form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <hr>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

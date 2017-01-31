@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+
+<body>
+<div class="container margin-top-1">
+  <div class="row">
+    <div class="col-md-12">
+      <p>A Travel Request has been submitted on <%= Date.today.strftime("%b %e, %Y") %> at <%= Time.now.strftime("%l:%M%P") %>:</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p><strong>Traveler Information</strong></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <table class="table table-condensed">
+        <tr>
+          <td>Traveler Name:</td>
+          <td><%= @params[:traveler_first_name] %> <%= @params[:traveler_last_name] %></td>
+        </tr>
+        <tr>
+          <td>Traveler Email:</td>
+          <td><%= @params[:traveler_email] %></td>
+        </tr>
+        <tr>
+          <td>Traveler Phone:</td>
+          <td><%= @params[:traveler_phone] %></td>
+        </tr>
+        <tr>
+          <td>Traveler Department:</td>
+          <td><%= departments[@params[:department].to_i][0] %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p><strong>Trip Information</strong></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <table class="table table-condensed">
+        <tr>
+          <td>Destination(s):</td>
+          <td><%= @params[:destination] %></td>
+        </tr>
+        <tr>
+          <td>Departure Date:</td>
+          <td><%= @params[:depart_date] %></td>
+        </tr>
+        <tr>
+          <td>Return Date:</td>
+          <td><%= @params[:return_date] %></td>
+        </tr>
+        <tr>
+          <td>Trip Purpose:</td>
+          <td><%= @params[:trip_purpose] %></td>
+        </tr>
+        <tr>
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="text-center">Amount</th>
+                <th class="text-center">Account</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Airfare</strong></td>
+                <td>$<%= @params[:airfare_amt] %></td>
+                <td><%= @params[:airfare_acct] %></td>
+              </tr>
+              <tr>
+                <td><strong>Lodging</strong></td>
+                <td>$<%= @params[:lodging_amt] %></td>
+                <td><%= @params[:lodging_acct] %></td>
+              </tr>
+              <tr>
+                <td><strong>Registration Fee</strong></td>
+                <td>$<%= @params[:registration_amt] %></td>
+                <td><%= @params[:registration_acct] %></td>
+              </tr>
+              <tr>
+                <td><strong>Meal Per Diem</strong></td>
+                <td>$<%= @params[:meal_amt] %></td>
+                <td><%= @params[:meal_acct] %></td>
+              </tr>
+              <tr>
+                <td><strong>Car Rental</strong></td>
+                <td>$<%= @params[:car_rental_amt] %></td>
+                <td><%= @params[:car_rental_acct] %></td>
+              </tr>
+              <tr>
+                <td><strong>Personal Auto (Mileage)</strong></td>
+                <td>$<%= @params[:mileage_amt] %></td>
+                <td><%= @params[:mileage_acct] %></td>
+              </tr>
+              <tr>
+                <td><strong>Ground Transportation/Taxi</strong></td>
+                <td>$<%= @params[:taxi_amt] %></td>
+                <td><%= @params[:taxi_acct] %></td>
+              </tr>
+              <tr>
+                <td><strong>Parking</strong></td>
+                <td>$<%= @params[:parking_amt] %></td>
+                <td><%= @params[:parking_acct] %></td>
+              </tr>
+              <tr>
+                <td><strong>Internet</strong></td>
+                <td>$<%= @params[:internet_amt] %></td>
+                <td><%= @params[:internet_acct] %></td>
+              </tr>
+              <tr>
+                <td><strong>Others</strong></td>
+                <td>$<%= @params[:other_amt] %></td>
+                <td><%= @params[:other_acct] %></td>
+              </tr>
+            </tbody>
+          </table>
+        </tr>
+        <tr>
+          <td>Accounts Instructions / Method of Payment</td>
+          <td><%= @params[:additional_accounts] %></td>
+        </tr>
+        <tr>
+          <td>Additional Comments:</td>
+          <td><%= @params[:comments] %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p><strong>Requester Information</strong></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <table class="table table-condensed">
+        <tr>
+          <td>Requester Name:</td>
+          <td><%= @params[:requester_first_name] %> <%= @params[:requester_last_name] %></td>
+        </tr>
+        <tr>
+          <td>Requester Department:</td>
+          <td><%= departments[@params[:requester_department].to_i][0] %></td>
+        </tr>
+        <tr>
+          <td>Requester Email:</td>
+          <td><%= @params[:requester_email] %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p>Lodging &amp; Meal Rates:</p>
+      <ul>
+        <li>The university requires those travelling on official university business to follow the existing federal
+          travel regulations (GSA) with regards to lodging and meal per diems (see:
+          <a href="https://www.unlv.edu/controller/travel-program">https://www.unlv.edu/controller/travel-program</a>)</li>
+        <li>Domestic per diem rates are set by fiscal year effective October 1. The current rates can be found by
+          searching city and state (or zip code). Related link:
+          <a href="https://www.gsa.gov/portal/content/104877">https://www.gsa.gov/portal/content/104877</a></li>
+        <li>Foreign per diem rates are set on a monthly basis and should be check prior to departure on overseas travel.
+          The rates shown are in US dollar currency, not local currency. Related link:
+          <a href="https://aoprals.state.gov/content.asp?content_id=114&menu_id=81">https://aoprals.state.gov/content.asp?content_id=114&menu_id=81</a></li>
+        <li>Lodging Exception Form can be found at: <a href="https://www.unlv.edu/controller/forms">https://www.unlv.edu/controller/forms</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p>Note: if this is a Grant Account request, please forward this information to the Finance and Administrative Specialist (tara.mullin@unlv.edu) for budget approval.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

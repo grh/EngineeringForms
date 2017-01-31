@@ -26,4 +26,18 @@ class FormMailer < ApplicationMailer
 
     mail(headers)
   end
+
+  def travel_request_email(params)
+    @params = params
+
+    headers = {
+        to: departments[@params[:department].to_i][2],
+        cc: @params[:requester_email],
+        from: "#{@params[:requester_first_name]} #{@params[:requester_last_name]} <#{@params[:requester_email]}>",
+        subject: "Travel Request - #{@params[:requester_first_name]} #{@params[:requester_middle_initial]} #{@params[:requester_last_name]}",
+        reply_to: @params[:requester_email]
+    }
+
+    mail(headers)
+  end
 end
