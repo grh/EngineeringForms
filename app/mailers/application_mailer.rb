@@ -2,7 +2,6 @@ class ApplicationMailer < ActionMailer::Base
   helper_method :departments
 
   def departments
-=begin
     return [
         [ 'COE Dean\'s Office', 0, ['tara.mullin@unlv.edu', 'marjorie.aylor@unlv.edu'] ],
         [ 'COE Advising Center', 1, ['tara.mullin@unlv.edu', 'maura.erickson@unlv.edu'] ],
@@ -15,10 +14,6 @@ class ApplicationMailer < ActionMailer::Base
         [ 'Center for Energy Research (CER)', 8, ['tara.mullin@unlv.edu', 'joan.conway@unlv.edu'] ],
         [ 'Aerospace Studies (AFROTC)', 9, ['jessica.sawicki@unlv.edu'] ],
         [ 'Military Science (ARMY)', 10, ['jessica.sawicki@unlv.edu'] ]
-    ]
-=end
-    return [
-        [ 'Guymon\'s Office', 0, ['guymon.hall@unlv.edu'] ]
     ]
   end
 end
