@@ -56,12 +56,32 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-6">
-                  <%= label_tag :department, 'Department/Unit' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
-                  <%= select_tag :department, options_for_select(departments), prompt: 'Choose a department', class: 'form-control', required: true %>
+                  <%= label_tag :traveler_department, 'Department/Unit' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= select_tag :traveler_department, options_for_select(departments), prompt: 'Choose a department', class: 'form-control', required: true %>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group form-inline">
+                <div class="col-md-2">
+                  <%= label_tag :traveler_type, 'Faculty' %>
+                  <%= radio_button_tag :traveler_type, 'Faculty', false, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-2">
+                  <%= label_tag :traveler_type, 'Staff' %>
+                  <%= radio_button_tag :traveler_type, 'Staff', false, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-2">
+                  <%= label_tag :traveler_type, 'Student' %>
+                  <%= radio_button_tag :traveler_type, 'Student', false, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-md-10">
               <h3>Trip Information</h3>
@@ -107,6 +127,7 @@
                       <th></th>
                       <th class="text-center">Amount</th>
                       <th class="text-center">Account</th>
+                      <th class="text-center">PCARD?</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -114,51 +135,61 @@
                       <td><strong>Airfare</strong></td>
                       <td><%= text_field_tag :airfare_amt, nil, class: 'form-control' %></td>
                       <td><%= text_field_tag :airfare_acct, nil, class: 'form-control' %></td>
+                      <td style="text-align: center"><%= check_box_tag(:airfare_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Lodging (See Note 1)</strong></td>
                       <td><%= text_field_tag :lodging_amt, nil, class: 'form-control' %></td>
                       <td><%= text_field_tag :lodging_acct, nil, class: 'form-control' %></td>
+                      <td style="text-align: center"><%= check_box_tag(:lodging_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Registration Fee</strong></td>
                       <td><%= text_field_tag :registration_amt, nil, class: 'form-control' %></td>
                       <td><%= text_field_tag :registration_acct, nil, class: 'form-control' %></td>
+                      <td style="text-align: center"><%= check_box_tag(:registration_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Meal Per Diem (See Note 1)</strong></td>
                       <td><%= text_field_tag :meal_amt, nil, class: 'form-control' %></td>
                       <td><%= text_field_tag :meal_acct, nil, class: 'form-control' %></td>
+                      <td style="text-align: center"><%= check_box_tag(:meal_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Car Rental</strong></td>
                       <td><%= text_field_tag :car_rental_amt, nil, class: 'form-control' %></td>
                       <td><%= text_field_tag :car_rental_acct, nil, class: 'form-control' %></td>
+                      <td style="text-align: center"><%= check_box_tag(:car_rental_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Personal Auto (Mileage)</strong></td>
                       <td><%= text_field_tag :mileage_amt, nil, class: 'form-control' %></td>
                       <td><%= text_field_tag :mileage_acct, nil, class: 'form-control' %></td>
+                      <td style="text-align: center"><%= check_box_tag(:mileage_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Ground Transportation/Taxi</strong></td>
                       <td><%= text_field_tag :taxi_amt, nil, class: 'form-control' %></td>
                       <td><%= text_field_tag :taxi_acct, nil, class: 'form-control' %></td>
+                      <td style="text-align: center"><%= check_box_tag(:taxi_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Parking</strong></td>
                       <td><%= text_field_tag :parking_amt, nil, class: 'form-control' %></td>
                       <td><%= text_field_tag :parking_acct, nil, class: 'form-control' %></td>
+                      <td style="text-align: center"><%= check_box_tag(:parking_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Internet</strong></td>
                       <td><%= text_field_tag :internet_amt, nil, class: 'form-control' %></td>
                       <td><%= text_field_tag :internet_acct, nil, class: 'form-control' %></td>
+                      <td style="text-align: center"><%= check_box_tag(:internet_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Others</strong></td>
                       <td><%= text_field_tag :other_amt, nil, class: 'form-control' %></td>
                       <td><%= text_field_tag :other_acct, nil, class: 'form-control' %></td>
+                      <td style="text-align: center"><%= check_box_tag(:other_pcard) %></td>
                     </tr>
                   </tbody>
                 </table>
@@ -204,6 +235,17 @@
           <div class="row">
             <div class="col-md-10">
               <h3>Requester Information</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= check_box_tag :same_as_traveler %>
+                  <%= label_tag :same_as_traveler, 'Same as traveler' %>
+                </div>
+              </div>
             </div>
           </div>
 

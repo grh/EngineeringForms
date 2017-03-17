@@ -16,4 +16,16 @@ class MailerController < ApplicationController
     flash[:success] = 'Your travel request has been sent!'
     redirect_to travel_request_form_path
   end
+
+  def summer_contract_email
+    FormMailer.summer_contract_email(params).deliver
+    flash[:success] = 'Your contract request has been sent!'
+    redirect_to summer_contract_form_path
+  end
+
+  def research_assistant_contract_email
+    FormMailer.research_assistant_contract_email(params).deliver
+    flash[:success] = 'Your contract request has been sent!'
+    redirect_to research_assistant_contract_form_path
+  end
 end

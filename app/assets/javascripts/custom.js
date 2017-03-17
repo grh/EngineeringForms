@@ -25,3 +25,35 @@ $(function() {
         $('#fteRate').val(((h / 40.0) * 100).toFixed(1));
     });
 });
+
+$(function() {
+    $('#same_as_traveler').on('change', function() {
+        if (this.checked) {
+            $('#requester_first_name').val($('#traveler_first_name').val());
+            $('#requester_last_name').val($('#traveler_last_name').val());
+            $('#requester_department').val($('#traveler_department').val());
+            $('#requester_email').val($('#traveler_email').val());
+        } else {
+            $('#requester_first_name').val('');
+            $('#requester_last_name').val('');
+            $('#requester_department').val('');
+            $('#requester_email').val('');
+        }
+    });
+});
+
+$(function() {
+    $('#same_as_employee').on('change', function() {
+        if (this.checked) {
+            $('#requester_first_name').val($('#employee_first_name').val());
+            $('#requester_last_name').val($('#employee_last_name').val());
+            $('#requester_department').val($('#department').val());
+            $('#requester_email').val($('#employee_email').val());
+        } else {
+            $('#requester_first_name').val('');
+            $('#requester_last_name').val('');
+            $('#requester_department').val('');
+            $('#requester_email').val('');
+        }
+    });
+});

@@ -40,4 +40,32 @@ class FormMailer < ApplicationMailer
 
     mail(headers)
   end
+
+  def summer_contract_email(params)
+    @params = params
+
+    headers = {
+        to: departments[@params[:department].to_i][2],
+        cc: @params[:requester_email],
+        from: "#{@params[:requester_first_name]} #{@params[:requester_last_name]} <#{@params[:requester_email]}>",
+        subject: "Summer Contract Request - #{@params[:employee_first_name]} #{@params[:employee_middle_initial]} #{@params[:employee_last_name]}",
+        reply_to: @params[:requester_email]
+    }
+
+    mail(headers)
+  end
+
+  def research_assistant_contract_email(params)
+    @params = params
+
+    headers = {
+        to: departments[@params[:department].to_i][2],
+        cc: @params[:requester_email],
+        from: "#{@params[:requester_first_name]} #{@params[:requester_last_name]} <#{@params[:requester_email]}>",
+        subject: "Research Assistant Contract Request - #{@params[:employee_first_name]} #{@params[:employee_middle_initial]} #{@params[:employee_last_name]}",
+        reply_to: @params[:requester_email]
+    }
+
+    mail(headers)
+  end
 end

@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
         [ 'Center for Energy Research (CER)', 8 ],
         [ 'Aerospace Studies (AFROTC)', 9 ],
         [ 'Military Science (ARMY)', 10 ]
+        #[ 'Guymon\'s Office', 0 ]
     ]
   end
 

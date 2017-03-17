@@ -1,0 +1,358 @@
+<%= provide :title, 'Summer Contract Request' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">Summer Contract Request</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <strong><span style="font-size:1.25em; color:#880000;">&lowast;</span> &mdash; indicates required field</strong>
+    </div>
+  </div>
+
+  <div class="row margin-top-1">
+    <div class="col-md-10 col-centered">
+      <%= form_tag(summer_contract_email_path, method: :post) do %>
+          <div class="row">
+            <div class="col-md-10">
+              <h3>Employee Information</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-5">
+                  <%= label_tag :employee_first_name, 'First Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :employee_first_name, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-2">
+                  <%= label_tag :employee_middle_initial, 'Middle Initial' %>
+                  <%= text_field_tag :employee_middle_initial, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-5">
+                  <%= label_tag :employee_last_name, 'Last Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :employee_last_name, nil, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-5">
+                  <%= label_tag :employee_email, 'Email' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= email_field_tag :employee_email, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-5">
+                  <%= label_tag :employee_phone, 'Phone' %>
+                  <%= telephone_field_tag :employee_phone, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :department, 'Department/Unit' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= select_tag :department, options_for_select(departments), prompt: 'Choose a department', class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-10">
+              <h3>Contract Information</h3>
+            </div>
+          </div>
+
+          <div class="row margin-top-1">
+            <div class="col-md-11">
+              <p>Enter up to 3 dates, accounts, and amount for each time period.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <table class="table table-striped outer-table margin-top-1">
+                  <thead>
+                    <tr>
+                      <th class="text-center">Months</th>
+                      <th class="text-center" colspan="2">Date(s)</th>
+                      <th class="text-center">Account No.(s)</th>
+                      <th class="text-center">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>May (up to 0.5 months)</strong></td>
+                      <td colspan="3">
+                        <table class="table-condensed">
+                          <tr>
+                            <td>
+                              <%= text_field_tag :may_start_date_1, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                            </td>
+                            <td>
+                              <%= text_field_tag :may_end_date_1, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                            </td>
+                            <td><%= text_field_tag :may_acct_1, nil, class: 'form-control' %></td>
+                            <td><%= text_field_tag :may_amt_1, nil, class: 'form-control' %></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <%= text_field_tag :may_start_date_2, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                            </td>
+                            <td>
+                              <%= text_field_tag :may_end_date_2, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                            </td>
+                            <td><%= text_field_tag :may_acct_2, nil, class: 'form-control' %></td>
+                            <td><%= text_field_tag :may_amt_2, nil, class: 'form-control' %></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <%= text_field_tag :may_start_date_3, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                            </td>
+                            <td>
+                              <%= text_field_tag :may_end_date_3, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                            </td>
+                            <td><%= text_field_tag :may_acct_3, nil, class: 'form-control' %></td>
+                            <td><%= text_field_tag :may_amt_3, nil, class: 'form-control' %></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>June (up to 1 month)</strong></td>
+                      <td colspan="3">
+                        <table class="table-condensed">
+                          <tr>
+                            <td>
+                              <%= text_field_tag :jun_start_date_1, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                            </td>
+                            <td>
+                              <%= text_field_tag :jun_end_date_1, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                            </td>
+                            <td><%= text_field_tag :jun_acct_1, nil, class: 'form-control' %></td>
+                            <td><%= text_field_tag :jun_amt_1, nil, class: 'form-control' %></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <%= text_field_tag :jun_start_date_2, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                            </td>
+                            <td>
+                              <%= text_field_tag :jun_end_date_2, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                            </td>
+                            <td><%= text_field_tag :jun_acct_2, nil, class: 'form-control' %></td>
+                            <td><%= text_field_tag :jun_amt_2, nil, class: 'form-control' %></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <%= text_field_tag :jun_start_date_3, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                            </td>
+                            <td>
+                              <%= text_field_tag :jun_end_date_3, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                            </td>
+                            <td><%= text_field_tag :jun_acct_3, nil, class: 'form-control' %></td>
+                            <td><%= text_field_tag :jun_amt_3, nil, class: 'form-control' %></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>July (up to 1 month)</strong></td>
+                      <td colspan="3">
+                        <table class="table-condensed">
+                          <tr>
+                            <td>
+                              <%= text_field_tag :jul_start_date_1, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                            </td>
+                            <td>
+                              <%= text_field_tag :jul_end_date_1, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                            </td>
+                            <td><%= text_field_tag :jul_acct_1, nil, class: 'form-control' %></td>
+                            <td><%= text_field_tag :jul_amt_1, nil, class: 'form-control' %></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <%= text_field_tag :jul_start_date_2, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                            </td>
+                            <td>
+                              <%= text_field_tag :jul_end_date_2, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                            </td>
+                            <td><%= text_field_tag :jul_acct_2, nil, class: 'form-control' %></td>
+                            <td><%= text_field_tag :jul_amt_2, nil, class: 'form-control' %></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <%= text_field_tag :jul_start_date_3, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                            </td>
+                            <td>
+                              <%= text_field_tag :jul_end_date_3, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                            </td>
+                            <td><%= text_field_tag :jul_acct_3, nil, class: 'form-control' %></td>
+                            <td><%= text_field_tag :jul_amt_3, nil, class: 'form-control' %></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>August (up to 0.5 months)</strong></td>
+                      <td colspan="3">
+                        <table class="table-condensed">
+                          <tr>
+                            <td>
+                              <%= text_field_tag :aug_start_date_1, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                            </td>
+                            <td>
+                              <%= text_field_tag :aug_end_date_1, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                            </td>
+                            <td><%= text_field_tag :aug_acct_1, nil, class: 'form-control' %></td>
+                            <td><%= text_field_tag :aug_amt_1, nil, class: 'form-control' %></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <%= text_field_tag :aug_start_date_2, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                            </td>
+                            <td>
+                              <%= text_field_tag :aug_end_date_2, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                            </td>
+                            <td><%= text_field_tag :aug_acct_2, nil, class: 'form-control' %></td>
+                            <td><%= text_field_tag :aug_amt_2, nil, class: 'form-control' %></td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <%= text_field_tag :aug_start_date_3, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
+                            </td>
+                            <td>
+                              <%= text_field_tag :aug_end_date_3, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
+                            </td>
+                            <td><%= text_field_tag :aug_acct_3, nil, class: 'form-control' %></td>
+                            <td><%= text_field_tag :aug_amt_3, nil, class: 'form-control' %></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-12 margin-top-1">
+                  <%= label_tag :comments, 'Additional Comments/Instructions' %>
+                  <%= text_area_tag :comments, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-10 margin-top-2">
+              <p>For "B" contract personnel, summer salary may
+                not exceed 3/9 of the base salary (e.g., $100,000 B-base
+                / 9 months = $11,111.11 monthly salary x 3 = $33,333.33
+                Summer Salary)</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-10 margin-top-1">
+              <p>LOR (Letter of Appointment with Retirement)
+                Instructional appointments equivalent to eight credit
+                hours, cumulatively, during Summer Sessions I, II, & III.
+                (One 3-credit course = 0.1875 FTE). Research, service, or
+                administrative appointments equivalent to 20 hours per
+                week for all of the three months of summer (20 hrs/wk =
+                0.50 FTE). Any combination of instructional, research, or
+                administrative appointments that is equivalent to half time.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-10 margin-top-1">
+              <p>Note that NSHE regulations require that
+                summer research contract for any of the three months will
+                be made only if the research is done during the time
+                actually contracted you must be on campus during the
+                requested period unless the research project requires
+                being away on a related activities such as data collection.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-10">
+              <h3>Requester Information</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= check_box_tag :same_as_employee %>
+                  <%= label_tag :same_as_employee, 'Same as employee' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :requester_first_name, 'First Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :requester_first_name, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-6">
+                  <%= label_tag :requester_last_name, 'Last Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :requester_last_name, nil, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :requester_department, 'Department/Unit' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= select_tag :requester_department, options_for_select(departments), prompt: 'Choose a department', class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-6">
+                  <%= label_tag :requester_email, 'Email' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= email_field_tag :requester_email, nil, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row margin-top-2">
+            <div class="col-md-12">
+              <div class="form-group">
+                <div class="col-md-2 col-centered text-center">
+                  <%= submit_tag 'Submit', class: 'btn btn-default form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <hr>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

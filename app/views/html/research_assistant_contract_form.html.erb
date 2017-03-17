@@ -1,0 +1,244 @@
+<%= provide :title, 'Research Assistant Contract Request' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">Research Assistant Contract Request</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <strong><span style="font-size:1.25em; color:#880000;">&lowast;</span> &mdash; indicates required field</strong>
+    </div>
+  </div>
+
+  <div class="row margin-top-1">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 margin-top-1">
+      <strong>
+        Note: If you intend to use the same position information for
+        multiple employees, please indicate the additional employee
+        information for each employee in the comments section.
+        Alternatively, you may fill out a separate request for each
+        employee.
+      </strong>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+  <div class="row margin-top-1">
+    <div class="col-md-10 col-centered">
+      <%= form_tag(research_assistant_contract_email_path, method: :post) do %>
+          <div class="row">
+            <div class="col-md-10">
+              <h3>Employee Information</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-5">
+                  <%= label_tag :employee_first_name, 'First Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :employee_first_name, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-2">
+                  <%= label_tag :employee_middle_initial, 'Middle Initial' %>
+                  <%= text_field_tag :employee_middle_initial, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-5">
+                  <%= label_tag :employee_last_name, 'Last Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :employee_last_name, nil, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-5">
+                  <%= label_tag :employee_email, 'Email' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= email_field_tag :employee_email, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-5">
+                  <%= label_tag :employee_phone, 'Phone' %>
+                  <%= telephone_field_tag :employee_phone, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group form-inline">
+                <div class="col-md-5">
+                  <span style="font-size:1.25em; color:#880000;">&lowast;</span><%= label_tag :hire_type, 'New Hire' %>
+                  <%= radio_button_tag :hire_type, 'New Hire', false, class: 'form-control', required: true %>
+                  <%= label_tag :hire_type, 'Reappointment' %>
+                  <%= radio_button_tag :hire_type, 'Reappointment', false, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-7">
+                  <%= label_tag :is_international, 'International Student/Employee?' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= label_tag :is_international, 'Yes' %>
+                  <%= radio_button_tag :is_international, 'Yes', false, class: 'form-control', required: true %>
+                  <%= label_tag :is_international, 'No' %>
+                  <%= radio_button_tag :is_international, 'No', false, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-10">
+              <h3>Position Information</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :department, 'Department/Unit' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= select_tag :department, options_for_select(departments), prompt: 'Choose a department', class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-6">
+                  <%= label_tag :supervisor, 'Supervisor' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :supervisor, nil, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-12 form-inline">
+                  <%= label_tag nil, 'Semester' %><span style="font-size:1.25em; color:#880000;">&lowast;</span><br>
+
+                  <%= label_tag :semester, 'Fall', class: 'margin-right-half' %><input class="form-control margin-right-1-5" name="semester[]" type="checkbox" value="Fall" />
+                  <%= label_tag :semester, 'Spring', class: 'margin-right-half' %><input class="form-control margin-right-1-5" name="semester[]" type="checkbox" value="Spring" />
+                  <%= label_tag :semester, 'Summer (May-Aug)', class: 'margin-right-half' %><input class="form-control margin-right-1-5" name="semester[]" type="checkbox" value="Summer (May-Aug)" />
+                  <%= label_tag :semester, 'Summer (May-Jun)', class: 'margin-right-half' %><input class="form-control margin-right-1-5" name="semester[]" type="checkbox" value="Summer (May-Jun)" />
+                  <%= label_tag :semester, 'Summer (Jul-Aug)', class: 'margin-right-half' %><input class="form-control margin-right-1-5" name="semester[]" type="checkbox" value="Summer (Jul-Aug)" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group form-inline">
+                <div class="col-md-3">
+                  <%= label_tag :stiipend, 'Stipend' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :stipend, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-3">
+                  <%= label_tag :credits, 'Credits' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :credits, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                  <%= label_tag :health_ins, 'Health Insurance?' %><span style="font-size:1.25em; color:#880000;">&lowast;</span><br>
+                  <%= label_tag :health_ins, 'Yes' %>
+                  <%= radio_button_tag :health_ins, 'Yes', false, class: 'form-control margin-right-2', required: true %>
+                  <%= label_tag :health_ins, 'No' %>
+                  <%= radio_button_tag :health_ins, 'No', false, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :account_information, 'Account Number or Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :account_information, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-6 form-inline margin-top-1-5">
+                  <%= label_tag :split_funded, 'Split Funded?' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= label_tag :split_funded, 'Yes' %>
+                  <%= radio_button_tag :split_funded, 'Yes', false, class: 'form-control', required: true %>
+                  <%= label_tag :split_funded, 'No' %>
+                  <%= radio_button_tag :split_funded, 'No', false, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-12">
+                  <%= label_tag :additional_accounts, 'Additional Accounts (Please specify Acct. Num. or Name. Include split details in comments.)' %>
+                  <%= text_area_tag :additional_accounts, nil, class: 'form-control' %>
+                </div>
+                <div class="col-md-12 margin-top-1">
+                  <%= label_tag :job_description, 'Job Description' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_area_tag :job_description, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-12 margin-top-1">
+                  <%= label_tag :comments, 'Additional Comments' %>
+                  <%= text_area_tag :comments, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-10">
+              <h3>Requester Information</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :requester_first_name, 'First Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :requester_first_name, nil, class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-6">
+                  <%= label_tag :requester_last_name, 'Last Name' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :requester_last_name, nil, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-6">
+                  <%= label_tag :requester_department, 'Department/Unit' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= select_tag :requester_department, options_for_select(departments), prompt: 'Choose a department', class: 'form-control', required: true %>
+                </div>
+                <div class="col-md-6">
+                  <%= label_tag :requester_email, 'Email' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= email_field_tag :requester_email, nil, class: 'form-control', required: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row margin-top-2">
+            <div class="col-md-12">
+              <div class="form-group">
+                <div class="col-md-2 col-centered text-center">
+                  <%= submit_tag 'Submit', class: 'btn btn-default form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-11 col-centered">
+              <hr>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+
+<body>
+<div class="container margin-top-1">
+  <div class="row">
+    <div class="col-md-12">
+      <p>A Summer Contract Request has been submitted on <%= Date.today.strftime("%b %e, %Y") %> at <%= Time.now.strftime("%l:%M%P") %>:</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p><strong>Employee Information</strong></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <table class="table table-condensed">
+        <tr>
+          <td>Employee Name:</td>
+          <td><%= @params[:employee_first_name] %> <%= @params[:employee_middle_initial] %> <%= @params[:employee_last_name] %></td>
+        </tr>
+        <tr>
+          <td>Employee Email:</td>
+          <td><%= @params[:employee_email] %></td>
+        </tr>
+        <tr>
+          <td>Employee Phone:</td>
+          <td><%= @params[:employee_phone] %></td>
+        </tr>
+        <tr>
+          <td>Department/Unit:</td>
+          <td><%= departments[@params[:department].to_i][0] %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p><strong>Contract Information</strong></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <table class="table table-condensed">
+        <tr>
+          <th></th>
+          <th colspan="2">Dates</th>
+          <th>Accounts</th>
+          <th>Amounts</th>
+        </tr>
+        <tr>
+          <td><strong>May Info:</strong></td>
+          <td><%= @params[:may_start_date_1] if @params[:may_start_date_1] != 'Start' %></td>
+          <td><%= @params[:may_end_date_1] if @params[:may_end_date_1] != 'End' %></td>
+          <td><%= @params[:may_acct_1] %></td>
+          <td><%= @params[:may_amt_1] %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= @params[:may_start_date_2] if @params[:may_start_date_2] != 'Start' %></td>
+          <td><%= @params[:may_end_date_2] if @params[:may_end_date_2] != 'End' %></td>
+          <td><%= @params[:may_acct_2] %></td>
+          <td><%= @params[:may_amt_2] %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= @params[:may_start_date_3] if @params[:may_start_date_3] != 'Start' %></td>
+          <td><%= @params[:may_end_date_3] if @params[:may_end_date_3] != 'End' %></td>
+          <td><%= @params[:may_acct_3] %></td>
+          <td><%= @params[:may_amt_3] %></td>
+        </tr>
+        <tr>
+          <td><strong>Jun Info:</strong></td>
+          <td><%= @params[:jun_start_date_1] if @params[:jun_start_date_1] != 'Start' %></td>
+          <td><%= @params[:jun_end_date_1] if @params[:jun_end_date_1] != 'End' %></td>
+          <td><%= @params[:jun_acct_1] %></td>
+          <td><%= @params[:jun_amt_1] %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= @params[:jun_start_date_2] if @params[:jun_start_date_2] != 'Start' %></td>
+          <td><%= @params[:jun_end_date_2] if @params[:jun_end_date_2] != 'End' %></td>
+          <td><%= @params[:jun_acct_2] %></td>
+          <td><%= @params[:jun_amt_2] %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= @params[:jun_start_date_3] if @params[:jun_start_date_3] != 'Start' %></td>
+          <td><%= @params[:jun_end_date_3] if @params[:jun_end_date_3] != 'End' %></td>
+          <td><%= @params[:jun_acct_3] %></td>
+          <td><%= @params[:jun_amt_3] %></td>
+        </tr>
+        <tr>
+          <td><strong>Jul Info:</strong></td>
+          <td><%= @params[:jul_start_date_1] if @params[:jul_start_date_1] != 'Start' %></td>
+          <td><%= @params[:jul_end_date_1] if @params[:jul_end_date_1] != 'End' %></td>
+          <td><%= @params[:jul_acct_1] %></td>
+          <td><%= @params[:jul_amt_1] %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= @params[:jul_start_date_2] if @params[:jul_start_date_2] != 'Start' %></td>
+          <td><%= @params[:jul_end_date_2] if @params[:jul_end_date_2] != 'End' %></td>
+          <td><%= @params[:jul_acct_2] %></td>
+          <td><%= @params[:jul_amt_2] %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= @params[:jul_start_date_3] if @params[:jul_start_date_3] != 'Start' %></td>
+          <td><%= @params[:jul_end_date_3] if @params[:jul_end_date_3] != 'End' %></td>
+          <td><%= @params[:jul_acct_3] %></td>
+          <td><%= @params[:jul_amt_3] %></td>
+        </tr>
+        <tr>
+          <td><strong>Aug Info:</strong></td>
+          <td><%= @params[:aug_start_date_1] if @params[:aug_start_date_1] != 'Start' %></td>
+          <td><%= @params[:aug_end_date_1] if @params[:aug_end_date_1] != 'End' %></td>
+          <td><%= @params[:aug_acct_1] %></td>
+          <td><%= @params[:aug_amt_1] %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= @params[:aug_start_date_2] if @params[:aug_start_date_2] != 'Start' %></td>
+          <td><%= @params[:aug_end_date_2] if @params[:aug_end_date_2] != 'End' %></td>
+          <td><%= @params[:aug_acct_2] %></td>
+          <td><%= @params[:aug_amt_2] %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= @params[:aug_start_date_3] if @params[:aug_start_date_3] != 'Start' %></td>
+          <td><%= @params[:aug_end_date_3] if @params[:aug_end_date_3] != 'End' %></td>
+          <td><%= @params[:aug_acct_3] %></td>
+          <td><%= @params[:aug_amt_3] %></td>
+        </tr>
+        <tr>
+          <td>Additional Comments:</td>
+          <td><%= @params[:comments] %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p><strong>Requester Information</strong></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <table class="table table-condensed">
+        <tr>
+          <td>Requester Name:</td>
+          <td><%= @params[:requester_first_name] %> <%= @params[:requester_last_name] %></td>
+        </tr>
+        <tr>
+          <td>Requester Department:</td>
+          <td><%= departments[@params[:requester_department].to_i][0] %></td>
+        </tr>
+        <tr>
+          <td>Requester Email:</td>
+          <td><%= @params[:requester_email] %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 col-sm-offset-1 margin-top-1">
+      <p><span style="font-size:1.25em;">&lowast;</span> For "B" contract personnel, summer salary may
+        not exceed 3/9 of the base salary (e.g., $100,000 B-base
+        / 9 months = $11,111.11 monthly salary x 3 = $33,333.33
+        Summer Salary)</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 col-sm-offset-1 margin-top-1">
+      <p><span style="font-size:1.25em;">&lowast;&lowast;</span> LOR (Letter of Appointment with Retirement)
+        Instructional appointments equivalent to eight credit
+        hours, cumulatively, during Summer Sessions I, II, & III.
+        (One 3-credit course = 0.1875 FTE). Research, service, or
+        administrative appointments equivalent to 20 hours per
+        week for all of the three months of summer (20 hrs/wk =
+        0.50 FTE). Any combination of instructional, research, or
+        administrative appointments that is equivalent to half time.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10 col-sm-offset-1 margin-top-1">
+      <p><span style="font-size:1.25em;">&lowast;&lowast;&lowast;</span> Note that NSHE regulations require that
+        summer research contract for any of the three months will
+        be made only if the research is done during the time
+        actually contracted you must be on campus during the
+        requested period unless the research project requires
+        being away on a related activities such as data collection.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <p>Note: If any or all expenses are charged to grant accounts, the request has to be reviewed by the Finance and
+        Administrative Specialist (tara.mullin@unlv.edu) for budget verification and/or adjustment if needed.
+        Confirmation email will then be sent by the Finance and Administrative Specialist  to continue the process.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

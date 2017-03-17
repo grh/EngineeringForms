@@ -14,6 +14,7 @@ class ApplicationMailer < ActionMailer::Base
         [ 'Center for Energy Research (CER)', 8, ['tara.mullin@unlv.edu', 'joan.conway@unlv.edu'] ],
         [ 'Aerospace Studies (AFROTC)', 9, ['jessica.sawicki@unlv.edu'] ],
         [ 'Military Science (ARMY)', 10, ['jessica.sawicki@unlv.edu'] ]
+        #[ 'Guymon\'s Office', 0, ['guymon.hall@unlv.edu'] ]
     ]
   end
 end

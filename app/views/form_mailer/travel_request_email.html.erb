@@ -39,7 +39,11 @@
         </tr>
         <tr>
           <td>Traveler Department:</td>
-          <td><%= departments[@params[:department].to_i][0] %></td>
+          <td><%= departments[@params[:traveler_department].to_i][0] %></td>
+        </tr>
+        <tr>
+          <td>Traveler Type:</td>
+          <td><%= @params[:traveler_type] %></td>
         </tr>
       </table>
     </div>
@@ -78,6 +82,7 @@
                 <th></th>
                 <th class="text-center">Amount</th>
                 <th class="text-center">Account</th>
+                <th class="text-center">PCARD?</th>
               </tr>
             </thead>
             <tbody>
@@ -85,57 +90,107 @@
                 <td><strong>Airfare</strong></td>
                 <td>$<%= @params[:airfare_amt] %></td>
                 <td><%= @params[:airfare_acct] %></td>
+                <td style="text-align: center">
+                  <% if @params[:airfare_pcard] %>
+                    Y
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td><strong>Lodging</strong></td>
                 <td>$<%= @params[:lodging_amt] %></td>
                 <td><%= @params[:lodging_acct] %></td>
+                <td style="text-align: center">
+                  <% if @params[:lodging_pcard] %>
+                      Y
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td><strong>Registration Fee</strong></td>
                 <td>$<%= @params[:registration_amt] %></td>
                 <td><%= @params[:registration_acct] %></td>
+                <td style="text-align: center">
+                  <% if @params[:registration_pcard] %>
+                      Y
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td><strong>Meal Per Diem</strong></td>
                 <td>$<%= @params[:meal_amt] %></td>
                 <td><%= @params[:meal_acct] %></td>
+                <td style="text-align: center">
+                  <% if @params[:meal_pcard] %>
+                      Y
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td><strong>Car Rental</strong></td>
                 <td>$<%= @params[:car_rental_amt] %></td>
                 <td><%= @params[:car_rental_acct] %></td>
+                <td style="text-align: center">
+                  <% if @params[:car_rental_pcard] %>
+                      Y
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td><strong>Personal Auto (Mileage)</strong></td>
                 <td>$<%= @params[:mileage_amt] %></td>
                 <td><%= @params[:mileage_acct] %></td>
+                <td style="text-align: center">
+                  <% if @params[:mileage_pcard] %>
+                      Y
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td><strong>Ground Transportation/Taxi</strong></td>
                 <td>$<%= @params[:taxi_amt] %></td>
                 <td><%= @params[:taxi_acct] %></td>
+                <td style="text-align: center">
+                  <% if @params[:taxi_pcard] %>
+                      Y
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td><strong>Parking</strong></td>
                 <td>$<%= @params[:parking_amt] %></td>
                 <td><%= @params[:parking_acct] %></td>
+                <td style="text-align: center">
+                  <% if @params[:parking_pcard] %>
+                      Y
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td><strong>Internet</strong></td>
                 <td>$<%= @params[:internet_amt] %></td>
                 <td><%= @params[:internet_acct] %></td>
+                <td style="text-align: center">
+                  <% if @params[:internet_pcard] %>
+                      Y
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td><strong>Others</strong></td>
                 <td>$<%= @params[:other_amt] %></td>
                 <td><%= @params[:other_acct] %></td>
+                <td style="text-align: center">
+                  <% if @params[:other_pcard] %>
+                      Y
+                  <% end %>
+                </td>
               </tr>
             </tbody>
           </table>
         </tr>
         <tr>
-          <td>Accounts Instructions / Method of Payment</td>
+          <td>Accounts Instructions / Method of Payment:</td>
           <td><%= @params[:additional_accounts] %></td>
         </tr>
         <tr>
