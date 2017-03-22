@@ -147,11 +147,18 @@
           <div class="row">
             <div class="col-md-11 col-centered">
               <div class="form-group form-inline">
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <%= label_tag :credits, 'Credits' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= text_field_tag :credits, nil, class: 'form-control', required: true %>
                 </div>
                 <div class="col-md-1"></div>
+                <div class="col-md-3">
+                  <%= label_tag :tuition_fees_paid, 'Tuition/Fees?' %><br>
+                  <%= label_tag :tuition_fees_paid, 'Yes' %>
+                  <%= radio_button_tag :tuition_fees_paid, 'Yes', false, class: 'form-control margin-right-2', required: true %>
+                  <%= label_tag :tuition_fees_paid, 'No' %>
+                  <%= radio_button_tag :tuition_fees_paid, 'No', false, class: 'form-control', required: true %>
+                </div>
                 <div class="col-md-5">
                   <%= label_tag :health_ins, 'Health Insurance?' %><span style="font-size:1.25em; color:#880000;">&lowast;</span><br>
                   <%= label_tag :health_ins, 'Yes' %>
