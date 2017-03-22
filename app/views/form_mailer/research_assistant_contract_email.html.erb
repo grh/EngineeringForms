@@ -11,7 +11,7 @@
 <div class="container margin-top-1">
   <div class="row">
     <div class="col-md-12">
-      <p>A Research Assistant Contract Request has been submitted on <%= Date.today.strftime("%b %e, %Y") %> at <%= Time.now.strftime("%l:%M%P") %>:</p>
+      <p>A Research Assistant - Extramural Funded Contract Request has been submitted on <%= Date.today.strftime("%b %e, %Y") %> at <%= Time.now.strftime("%l:%M%P") %>:</p>
     </div>
   </div>
 
@@ -34,12 +34,8 @@
           <td><%= @params[:employee_email] %></td>
         </tr>
         <tr>
-          <td>Employee Phone:</td>
-          <td><%= @params[:employee_phone] %></td>
-        </tr>
-        <tr>
-          <td>New Hire/Reappointment:</td>
-          <td><%= @params[:hire_type] %></td>
+          <td>Degree:</td>
+          <td><%= @params[:degree] %></td>
         </tr>
         <tr>
           <td>International?:</td>
@@ -77,7 +73,7 @@
         </tr>
         <tr>
           <td>Stipend:</td>
-          <td><%= @params[:stipend] %></td>
+          <td><%= "#{@params[:unlv_min_stipend]} plus #{@params[:additional_stipend]}" %></td>
         </tr>
         <tr>
           <td>Health Insurance:</td>

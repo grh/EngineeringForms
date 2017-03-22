@@ -1,9 +1,9 @@
-<%= provide :title, 'Research Assistant Contract Request' %>
+<%= provide :title, 'Research Assistant - Extramural Fundend Contract Request' %>
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2 class="text-center">Research Assistant Contract Request</h2>
+      <h2 class="text-center">Research Assistant - Extramural Funded Contract Request</h2>
     </div>
   </div>
 
@@ -62,9 +62,11 @@
                   <%= label_tag :employee_email, 'Email' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= email_field_tag :employee_email, nil, class: 'form-control', required: true %>
                 </div>
-                <div class="col-md-5">
-                  <%= label_tag :employee_phone, 'Phone' %>
-                  <%= telephone_field_tag :employee_phone, nil, class: 'form-control' %>
+                <div class="col-md-7 form-inline margin-top-1-5">
+                  <%= label_tag :degree, 'M.S.' %>
+                  <%= radio_button_tag :degree, 'MS', false, class: 'form-control', required: true %>
+                  <%= label_tag :degree, 'PhD' %>
+                  <%= radio_button_tag :degree, 'PhD', false, class: 'form-control', required: true %>
                 </div>
               </div>
             </div>
@@ -127,14 +129,25 @@
             </div>
           </div>
 
+          <div class="row margin-top-1">
+            <div class="col-md-11 col-centered">
+              <div class="form-group">
+                <div class="col-md-3">
+                  <%= label_tag :unlv_min_stipend, 'UNLV Minimum Stipend' %>
+                  <%= check_box_tag :unlv_min_stipend, 'UNLV Minimum Stipend', false, class: 'form-control' %>
+                </div>
+                <div class="col-md-7">
+                  <%= label_tag :additional_stipend, 'Additional Stipend' %>
+                  <%= text_field_tag :additional_stipend, nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-md-11 col-centered">
               <div class="form-group form-inline">
-                <div class="col-md-3">
-                  <%= label_tag :stiipend, 'Stipend' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
-                  <%= text_field_tag :stipend, nil, class: 'form-control', required: true %>
-                </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                   <%= label_tag :credits, 'Credits' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= text_field_tag :credits, nil, class: 'form-control', required: true %>
                 </div>
