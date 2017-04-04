@@ -9,12 +9,12 @@ class ApplicationController < ActionController::Base
     return [
         [ 'COE Dean\'s Office', 0 ],
         [ 'COE Advising Center', 1 ],
-        [ 'Transportation Research Center', 2 ],
+        [ 'Transportation Research Center (TRC)', 2 ],
         [ 'Civil & Env. Engr. & Const. (CEEC)', 3 ],
         [ 'Computer Science (CS)', 4 ],
         [ 'Electrical & Computer Engr. (ECE)', 5 ],
-        [ 'Mechanical Engineering (ME)', 6 ],
-        [ 'Entertainment Engr. & Design (EED)', 7 ],
+        [ 'Entertainment Engr. & Design (EED)', 6 ],
+        [ 'Mechanical Engineering (ME)', 7 ],
         [ 'Center for Energy Research (CER)', 8 ],
         [ 'Aerospace Studies (AFROTC)', 9 ],
         [ 'Military Science (ARMY)', 10 ]
