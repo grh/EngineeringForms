@@ -60,7 +60,8 @@ class FormMailer < ApplicationMailer
     @params = params
 
     headers = {
-        to: departments[@params[:department].to_i][2],
+        #to: departments[@params[:department].to_i][2],
+        to: ['carmen.willis@unlv.edu', 'tara.mullin@unlv.edu'],
         cc: @params[:requester_email],
         from: "#{@params[:requester_first_name]} #{@params[:requester_last_name]} <#{@params[:requester_email]}>",
         subject: "Research Assistant Contract Request - #{@params[:employee_first_name]} #{@params[:employee_middle_initial]} #{@params[:employee_last_name]}",
