@@ -57,3 +57,31 @@ $(function() {
         }
     });
 });
+
+$(function() {
+    $('#minStipend').on('change', function () {
+        if (this.checked) {
+            $('#otherStipend').val('');
+            $('#otherStipend').attr('required', false);
+        }
+    });
+});
+
+$(function() {
+    $('#otherStipend').on('input', function() {
+        $('#minStipend').attr('checked', false);
+        $('#minStipend').attr('required', false);
+    });
+});
+
+$(function() {
+    $('#feesPaidYes').on('change', function() {
+        $('#numCredits').attr('required', true);
+    });
+});
+
+$(function() {
+    $('#feesPaidNo').on('change', function() {
+        $('#numCredits').attr('required', false);
+    });
+});

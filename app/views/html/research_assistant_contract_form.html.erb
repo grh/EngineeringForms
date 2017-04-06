@@ -14,20 +14,6 @@
   </div>
 
   <div class="row margin-top-1">
-    <div class="col-md-1"></div>
-    <div class="col-md-10 margin-top-1">
-      <strong>
-        Note: If you intend to use the same position information for
-        multiple employees, please indicate the additional employee
-        information for each employee in the comments section.
-        Alternatively, you may fill out a separate request for each
-        employee.
-      </strong>
-    </div>
-    <div class="col-md-1"></div>
-  </div>
-
-  <div class="row margin-top-1">
     <div class="col-md-10 col-centered">
       <%= form_tag(research_assistant_contract_email_path, method: :post) do %>
           <div class="row">
@@ -57,31 +43,20 @@
 
           <div class="row">
             <div class="col-md-11 col-centered">
-              <div class="form-group">
-                <div class="col-md-5">
-                  <%= label_tag :employee_email, 'Email' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
-                  <%= email_field_tag :employee_email, nil, class: 'form-control', required: true %>
-                </div>
-                <div class="col-md-7 form-inline margin-top-1-5">
-                  <%= label_tag :degree, 'M.S.' %>
+              <div class="form-group form-inline">
+                <div class="col-md-2">
+                  <span style="font-size:1.25em; color:#880000;">&lowast;</span><%= label_tag :degree, 'MS' %>
                   <%= radio_button_tag :degree, 'MS', false, class: 'form-control', required: true %>
                   <%= label_tag :degree, 'PhD' %>
                   <%= radio_button_tag :degree, 'PhD', false, class: 'form-control', required: true %>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-11 col-centered">
-              <div class="form-group form-inline">
-                <div class="col-md-5">
+                <div class="col-md-4">
                   <span style="font-size:1.25em; color:#880000;">&lowast;</span><%= label_tag :hire_type, 'New Hire' %>
                   <%= radio_button_tag :hire_type, 'New Hire', false, class: 'form-control', required: true %>
                   <%= label_tag :hire_type, 'Reappointment' %>
                   <%= radio_button_tag :hire_type, 'Reappointment', false, class: 'form-control', required: true %>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                   <%= label_tag :is_international, 'International Student/Employee?' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
                   <%= label_tag :is_international, 'Yes' %>
                   <%= radio_button_tag :is_international, 'Yes', false, class: 'form-control', required: true %>
@@ -121,7 +96,6 @@
 
                   <%= label_tag :semester, 'Fall', class: 'margin-right-half' %><input class="form-control margin-right-1-5" name="semester[]" type="checkbox" value="Fall" />
                   <%= label_tag :semester, 'Spring', class: 'margin-right-half' %><input class="form-control margin-right-1-5" name="semester[]" type="checkbox" value="Spring" />
-                  <%= label_tag :semester, 'Summer (May-Aug)', class: 'margin-right-half' %><input class="form-control margin-right-1-5" name="semester[]" type="checkbox" value="Summer (May-Aug)" />
                   <%= label_tag :semester, 'Summer (May-Jun)', class: 'margin-right-half' %><input class="form-control margin-right-1-5" name="semester[]" type="checkbox" value="Summer (May-Jun)" />
                   <%= label_tag :semester, 'Summer (Jul-Aug)', class: 'margin-right-half' %><input class="form-control margin-right-1-5" name="semester[]" type="checkbox" value="Summer (Jul-Aug)" />
                 </div>
@@ -133,12 +107,12 @@
             <div class="col-md-11 col-centered">
               <div class="form-group">
                 <div class="col-md-3">
-                  <%= label_tag :unlv_min_stipend, 'UNLV Minimum Stipend' %>
-                  <%= check_box_tag :unlv_min_stipend, 'UNLV Minimum Stipend', false, class: 'form-control' %>
+                  <%= label_tag :unlv_min_stipend, 'UNLV Minimum Stipend' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= check_box_tag :unlv_min_stipend, 'UNLV Minimum Stipend', false, class: 'form-control', id: 'minStipend', required: true %>
                 </div>
                 <div class="col-md-7">
-                  <%= label_tag :additional_stipend, 'Additional Stipend' %>
-                  <%= text_field_tag :additional_stipend, nil, class: 'form-control' %>
+                  <%= label_tag :additional_stipend, 'or, Other Stipend if above minimum' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :additional_stipend, nil, class: 'form-control', id: 'otherStipend', required: true %>
                 </div>
               </div>
             </div>
@@ -148,16 +122,15 @@
             <div class="col-md-11 col-centered">
               <div class="form-group form-inline">
                 <div class="col-md-3">
-                  <%= label_tag :credits, 'Credits' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
-                  <%= text_field_tag :credits, nil, class: 'form-control', required: true %>
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-3">
-                  <%= label_tag :tuition_fees_paid, 'Tuition/Fees?' %><br>
+                  <%= label_tag :tuition_fees_paid, 'Tuition/Fees?' %><span style="font-size:1.25em; color:#880000;">&lowast;</span><br>
                   <%= label_tag :tuition_fees_paid, 'Yes' %>
-                  <%= radio_button_tag :tuition_fees_paid, 'Yes', false, class: 'form-control margin-right-2', required: true %>
+                  <%= radio_button_tag :tuition_fees_paid, 'Yes', false, class: 'form-control margin-right-2', id: 'feesPaidYes', required: true %>
                   <%= label_tag :tuition_fees_paid, 'No' %>
-                  <%= radio_button_tag :tuition_fees_paid, 'No', false, class: 'form-control', required: true %>
+                  <%= radio_button_tag :tuition_fees_paid, 'No', false, class: 'form-control', id: 'feesPaidNo', required: true %>
+                </div>
+                <div class="col-md-4">
+                  <%= label_tag :credits, 'Number of Credits' %><span style="font-size:1.25em; color:#880000;">&lowast;</span>
+                  <%= text_field_tag :credits, nil, class: 'form-control', id: 'numCredits' %>
                 </div>
                 <div class="col-md-5">
                   <%= label_tag :health_ins, 'Health Insurance?' %><span style="font-size:1.25em; color:#880000;">&lowast;</span><br>

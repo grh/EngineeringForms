@@ -75,170 +75,81 @@
 
           <div class="row margin-top-1">
             <div class="col-md-11">
-              <p>Enter up to 3 dates, accounts, and amount for each time period.</p>
+              <p>Enter up to 3 accounts and amount for each time period.</p>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-11 col-centered">
               <div class="form-group">
-                <table class="table table-striped outer-table margin-top-1">
+                <table class="table table-striped custom-striped margin-top-1">
                   <thead>
                     <tr>
                       <th class="text-center">Months</th>
-                      <th class="text-center" colspan="2">Date(s)</th>
                       <th class="text-center">Account No.(s)</th>
                       <th class="text-center">Amount</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td><strong>May (up to 0.5 months)</strong></td>
-                      <td colspan="3">
-                        <table class="table-condensed">
-                          <tr>
-                            <td>
-                              <%= text_field_tag :may_start_date_1, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
-                            </td>
-                            <td>
-                              <%= text_field_tag :may_end_date_1, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
-                            </td>
-                            <td><%= text_field_tag :may_acct_1, nil, class: 'form-control' %></td>
-                            <td><%= text_field_tag :may_amt_1, nil, class: 'form-control' %></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <%= text_field_tag :may_start_date_2, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
-                            </td>
-                            <td>
-                              <%= text_field_tag :may_end_date_2, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
-                            </td>
-                            <td><%= text_field_tag :may_acct_2, nil, class: 'form-control' %></td>
-                            <td><%= text_field_tag :may_amt_2, nil, class: 'form-control' %></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <%= text_field_tag :may_start_date_3, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
-                            </td>
-                            <td>
-                              <%= text_field_tag :may_end_date_3, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
-                            </td>
-                            <td><%= text_field_tag :may_acct_3, nil, class: 'form-control' %></td>
-                            <td><%= text_field_tag :may_amt_3, nil, class: 'form-control' %></td>
-                          </tr>
-                        </table>
-                      </td>
+                      <td><strong>May (up to 0.5 month)</strong></td>
+                      <td><%= text_field_tag :may_acct_1, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :may_amt_1, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td><%= text_field_tag :may_acct_2, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :may_amt_2, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td><%= text_field_tag :may_acct_3, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :may_amt_3, nil, class: 'form-control' %></td>
                     </tr>
                     <tr>
                       <td><strong>June (up to 1 month)</strong></td>
-                      <td colspan="3">
-                        <table class="table-condensed">
-                          <tr>
-                            <td>
-                              <%= text_field_tag :jun_start_date_1, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
-                            </td>
-                            <td>
-                              <%= text_field_tag :jun_end_date_1, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
-                            </td>
-                            <td><%= text_field_tag :jun_acct_1, nil, class: 'form-control' %></td>
-                            <td><%= text_field_tag :jun_amt_1, nil, class: 'form-control' %></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <%= text_field_tag :jun_start_date_2, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
-                            </td>
-                            <td>
-                              <%= text_field_tag :jun_end_date_2, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
-                            </td>
-                            <td><%= text_field_tag :jun_acct_2, nil, class: 'form-control' %></td>
-                            <td><%= text_field_tag :jun_amt_2, nil, class: 'form-control' %></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <%= text_field_tag :jun_start_date_3, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
-                            </td>
-                            <td>
-                              <%= text_field_tag :jun_end_date_3, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
-                            </td>
-                            <td><%= text_field_tag :jun_acct_3, nil, class: 'form-control' %></td>
-                            <td><%= text_field_tag :jun_amt_3, nil, class: 'form-control' %></td>
-                          </tr>
-                        </table>
-                      </td>
+                      <td><%= text_field_tag :jun_acct_1, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :jun_amt_1, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td><%= text_field_tag :jun_acct_2, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :jun_amt_2, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td><%= text_field_tag :jun_acct_3, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :jun_amt_3, nil, class: 'form-control' %></td>
                     </tr>
                     <tr>
                       <td><strong>July (up to 1 month)</strong></td>
-                      <td colspan="3">
-                        <table class="table-condensed">
-                          <tr>
-                            <td>
-                              <%= text_field_tag :jul_start_date_1, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
-                            </td>
-                            <td>
-                              <%= text_field_tag :jul_end_date_1, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
-                            </td>
-                            <td><%= text_field_tag :jul_acct_1, nil, class: 'form-control' %></td>
-                            <td><%= text_field_tag :jul_amt_1, nil, class: 'form-control' %></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <%= text_field_tag :jul_start_date_2, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
-                            </td>
-                            <td>
-                              <%= text_field_tag :jul_end_date_2, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
-                            </td>
-                            <td><%= text_field_tag :jul_acct_2, nil, class: 'form-control' %></td>
-                            <td><%= text_field_tag :jul_amt_2, nil, class: 'form-control' %></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <%= text_field_tag :jul_start_date_3, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
-                            </td>
-                            <td>
-                              <%= text_field_tag :jul_end_date_3, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
-                            </td>
-                            <td><%= text_field_tag :jul_acct_3, nil, class: 'form-control' %></td>
-                            <td><%= text_field_tag :jul_amt_3, nil, class: 'form-control' %></td>
-                          </tr>
-                        </table>
-                      </td>
+                      <td><%= text_field_tag :jul_acct_1, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :jul_amt_1, nil, class: 'form-control' %></td>
                     </tr>
                     <tr>
-                      <td><strong>August (up to 0.5 months)</strong></td>
-                      <td colspan="3">
-                        <table class="table-condensed">
-                          <tr>
-                            <td>
-                              <%= text_field_tag :aug_start_date_1, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
-                            </td>
-                            <td>
-                              <%= text_field_tag :aug_end_date_1, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
-                            </td>
-                            <td><%= text_field_tag :aug_acct_1, nil, class: 'form-control' %></td>
-                            <td><%= text_field_tag :aug_amt_1, nil, class: 'form-control' %></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <%= text_field_tag :aug_start_date_2, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
-                            </td>
-                            <td>
-                              <%= text_field_tag :aug_end_date_2, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
-                            </td>
-                            <td><%= text_field_tag :aug_acct_2, nil, class: 'form-control' %></td>
-                            <td><%= text_field_tag :aug_amt_2, nil, class: 'form-control' %></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <%= text_field_tag :aug_start_date_3, 'Start', class: 'form-control datepicker calcFTE', id: 'startDate', required: true %>
-                            </td>
-                            <td>
-                              <%= text_field_tag :aug_end_date_3, 'End', class: 'form-control datepicker calcFTE', id: 'endDate', required: true %>
-                            </td>
-                            <td><%= text_field_tag :aug_acct_3, nil, class: 'form-control' %></td>
-                            <td><%= text_field_tag :aug_amt_3, nil, class: 'form-control' %></td>
-                          </tr>
-                        </table>
-                      </td>
+                      <td></td>
+                      <td><%= text_field_tag :jul_acct_2, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :jul_amt_2, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td><%= text_field_tag :jul_acct_3, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :jul_amt_3, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>August (up to 0.5 month)</strong></td>
+                      <td><%= text_field_tag :aug_acct_1, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :aug_amt_1, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td><%= text_field_tag :aug_acct_2, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :aug_amt_2, nil, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td><%= text_field_tag :aug_acct_3, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :aug_amt_3, nil, class: 'form-control' %></td>
                     </tr>
                   </tbody>
                 </table>
