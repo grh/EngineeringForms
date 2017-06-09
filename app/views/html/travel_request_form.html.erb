@@ -65,7 +65,7 @@
 
           <div class="row">
             <div class="col-md-11 col-centered">
-              <div class="form-group form-inline">
+              <div class="form-group form-inline travelerType">
                 <div class="col-md-2">
                   <%= label_tag :traveler_type, 'Faculty' %>
                   <%= radio_button_tag :traveler_type, 'Faculty', false, class: 'form-control', required: true %>
@@ -133,61 +133,61 @@
                   <tbody>
                     <tr>
                       <td><strong>Airfare</strong></td>
-                      <td><%= text_field_tag :airfare_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :airfare_amt, nil, class: 'form-control travelAcctReqd' %></td>
                       <td><%= text_field_tag :airfare_acct, nil, class: 'form-control' %></td>
                       <td style="text-align: center"><%= check_box_tag(:airfare_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Lodging (See Note 1)</strong></td>
-                      <td><%= text_field_tag :lodging_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :lodging_amt, nil, class: 'form-control travelAcctReqd' %></td>
                       <td><%= text_field_tag :lodging_acct, nil, class: 'form-control' %></td>
                       <td style="text-align: center"><%= check_box_tag(:lodging_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Registration Fee</strong></td>
-                      <td><%= text_field_tag :registration_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :registration_amt, nil, class: 'form-control travelAcctReqd' %></td>
                       <td><%= text_field_tag :registration_acct, nil, class: 'form-control' %></td>
                       <td style="text-align: center"><%= check_box_tag(:registration_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Meal Per Diem (See Note 1)</strong></td>
-                      <td><%= text_field_tag :meal_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :meal_amt, nil, class: 'form-control travelAcctReqd' %></td>
                       <td><%= text_field_tag :meal_acct, nil, class: 'form-control' %></td>
                       <td style="text-align: center"><%= check_box_tag(:meal_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Car Rental</strong></td>
-                      <td><%= text_field_tag :car_rental_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :car_rental_amt, nil, class: 'form-control travelAcctReqd' %></td>
                       <td><%= text_field_tag :car_rental_acct, nil, class: 'form-control' %></td>
                       <td style="text-align: center"><%= check_box_tag(:car_rental_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Personal Auto (Mileage)</strong></td>
-                      <td><%= text_field_tag :mileage_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :mileage_amt, nil, class: 'form-control travelAcctReqd' %></td>
                       <td><%= text_field_tag :mileage_acct, nil, class: 'form-control' %></td>
                       <td style="text-align: center"><%= check_box_tag(:mileage_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Ground Transportation/Taxi</strong></td>
-                      <td><%= text_field_tag :taxi_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :taxi_amt, nil, class: 'form-control travelAcctReqd' %></td>
                       <td><%= text_field_tag :taxi_acct, nil, class: 'form-control' %></td>
                       <td style="text-align: center"><%= check_box_tag(:taxi_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Parking</strong></td>
-                      <td><%= text_field_tag :parking_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :parking_amt, nil, class: 'form-control travelAcctReqd' %></td>
                       <td><%= text_field_tag :parking_acct, nil, class: 'form-control' %></td>
                       <td style="text-align: center"><%= check_box_tag(:parking_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Internet</strong></td>
-                      <td><%= text_field_tag :internet_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :internet_amt, nil, class: 'form-control travelAcctReqd' %></td>
                       <td><%= text_field_tag :internet_acct, nil, class: 'form-control' %></td>
                       <td style="text-align: center"><%= check_box_tag(:internet_pcard) %></td>
                     </tr>
                     <tr>
                       <td><strong>Others</strong></td>
-                      <td><%= text_field_tag :other_amt, nil, class: 'form-control' %></td>
+                      <td><%= text_field_tag :other_amt, nil, class: 'form-control travelAcctReqd' %></td>
                       <td><%= text_field_tag :other_acct, nil, class: 'form-control' %></td>
                       <td style="text-align: center"><%= check_box_tag(:other_pcard) %></td>
                     </tr>
